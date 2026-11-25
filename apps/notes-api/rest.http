@@ -1,0 +1,56 @@
+@baseUrl = http://localhost:1198
+
+### API status
+GET {{baseUrl}}/
+
+### Health
+GET {{baseUrl}}/health
+
+### Register user
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Notes User",
+  "email": "notes-user@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+### Login user
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "notes-user@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+### Create note
+POST {{baseUrl}}/api/notes
+Content-Type: application/json
+
+{
+  "title": "First note",
+  "content": "Note content goes here."
+}
+
+### Get my notes
+GET {{baseUrl}}/api/notes
+
+### Get one note
+GET {{baseUrl}}/api/notes/PASTE_NOTE_ID_HERE
+
+### Update note
+PUT {{baseUrl}}/api/notes/PASTE_NOTE_ID_HERE
+Content-Type: application/json
+
+{
+  "title": "Updated note",
+  "content": "Updated note content."
+}
+
+### Delete note
+DELETE {{baseUrl}}/api/notes/PASTE_NOTE_ID_HERE
+
+### Logout user
+POST {{baseUrl}}/api/auth/logout

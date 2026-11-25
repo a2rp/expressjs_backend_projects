@@ -10,7 +10,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- contact-form-api/            runnable example
     |-- http-only-cookie-auth/       scaffold
     |-- newsletter-subscription-api/ runnable example
-    |-- notes-api/                   scaffold
+    |-- notes-api/                   runnable example
     |-- refresh-token-auth-api/      scaffold
     |-- task-manager-api/            scaffold
     `-- user-profile-api/            scaffold
@@ -68,7 +68,20 @@ Copy `.env.example` to `.env` in this app folder. Configure `MONGO_URI`, then re
 
 The API listens on http://localhost:1198 by default. Register the initial admin with the `x-admin-registration-secret` header, then use the admin cookie to list active subscribers. Public users can subscribe and unsubscribe with a signed email token. See `apps/newsletter-subscription-api/README.md` and `apps/newsletter-subscription-api/rest.http` for full setup and endpoint details.
 
-The remaining app folders are being prepared as separate examples. Backend engineering study notes are maintained in the notes repository.
+## Run the Notes API
+
+Requirements: Node.js 20.19 or newer and a local MongoDB instance or MongoDB Atlas database.
+
+    cd apps/notes-api
+    npm install
+
+Copy `.env.example` to `.env` in the app folder. Configure `MONGO_URI`, replace `JWT_SECRET` with a unique random secret of at least 32 characters, and set `CLIENT_ORIGINS` to the trusted frontend origin(s).
+
+    npm run dev
+
+The API listens on http://localhost:1198 by default. It demonstrates cookie-based JWT authentication and user-owned notes CRUD. See `apps/notes-api/README.md` and `apps/notes-api/rest.http` for endpoint details and sample requests.
+
+The remaining scaffold folders are being prepared as separate examples. Backend engineering study notes are maintained in the notes repository.
 
 ## License
 
