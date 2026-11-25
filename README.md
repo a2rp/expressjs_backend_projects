@@ -42,6 +42,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- nodejs_firebase_endpoints/                    example
     |-- nodejs-auth-add-customers/                    example
     |-- nodejs-firestore-crud/                    example
+    |-- nodejs-user-authentication-hashed-password-login/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
