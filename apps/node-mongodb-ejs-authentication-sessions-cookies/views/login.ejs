@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Log in</title>
+</head>
+<body>
+<h1>Log in</h1>
+<h3 style="color: orangered">
+    <% if(locals.message) { %> <%= message %> <% } %>
+</h3>
+
+<form action="/login" method="POST">
+    <div>
+        <label for="usernameEmail">Username or Email:</label><br />
+        <input
+            type="text"
+            name="usernameEmail"
+            id="usernameEmail"
+            placeholder="Username or Email Address"
+            autocomplete="username"
+            maxlength="254"
+            required
+        />
+    </div>
+    <br />
+
+    <div>
+        <label for="password">Password:</label><br />
+        <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="current-password"
+            maxlength="72"
+            required
+        />
+    </div>
+    <br />
+
+    <div>
+        <button>Login</button>
+    </div>
+</form>
+
+<div>
+    <a href="/register">Register</a>
+</div>
+</body>
+</html>

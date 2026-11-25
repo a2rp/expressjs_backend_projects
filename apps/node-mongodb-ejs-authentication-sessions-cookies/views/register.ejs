@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create an account</title>
+</head>
+<body>
+<h1>Create an account</h1>
+
+<h3 style="color: orangered">
+    <% if(locals.message) { %> <%= message %> <% } %>
+</h3>
+
+<form action="/register" method="POST">
+    <div>
+        <label for="username">Username:</label><br />
+        <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+            autocomplete="username"
+            minlength="3"
+            maxlength="32"
+            pattern="[A-Za-z0-9][A-Za-z0-9._-]{2,31}"
+            required
+        />
+    </div>
+    <br />
+
+    <div>
+        <label for="email">Email:</label><br />
+        <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email Address"
+            autocomplete="email"
+            maxlength="254"
+            required
+        />
+    </div>
+    <br />
+
+    <div>
+        <label for="password">Password:</label><br />
+        <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="new-password"
+            minlength="8"
+            maxlength="72"
+            required
+        />
+    </div>
+    <br />
+
+    <div>
+        <button>Register</button>
+    </div>
+    <br />
+</form>
+
+<div>
+    <a href="/login">Login</a>
+</div>
+</body>
+</html>

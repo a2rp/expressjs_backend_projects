@@ -44,6 +44,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- nodejs-firestore-crud/                    example
     |-- nodejs-user-authentication-hashed-password-login/                    example
     |-- node-mongodb-crud/                    example
+    |-- node-mongodb-ejs-authentication-sessions-cookies/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
