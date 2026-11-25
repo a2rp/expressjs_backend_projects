@@ -1,0 +1,33 @@
+{
+  "name": "express-project-03-route-params-api",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A beginner Express.js API demonstrating route parameters with a sample user endpoint.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a2rp/express-project-03-route-params-api.git"
+  },
+  "keywords": [
+    "express",
+    "expressjs",
+    "nodejs",
+    "rest-api",
+    "route-parameters",
+    "express-routing",
+    "beginner-project"
+  ],
+  "author": "Ashish Ranjan",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/a2rp/express-project-03-route-params-api/issues"
+  },
+  "homepage": "https://github.com/a2rp/express-project-03-route-params-api#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
