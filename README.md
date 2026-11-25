@@ -15,6 +15,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- task-manager-api/            runnable example
     |-- authentication-system/          runnable example
     |-- authorization-security-api/          runnable example
+    |-- aws-app1-backend/                    example
     `-- user-profile-api/            scaffold
 
 ## Run the Basic JWT Auth API
