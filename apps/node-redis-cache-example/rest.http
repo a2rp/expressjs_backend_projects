@@ -1,0 +1,11 @@
+### a2rp
+GET http://127.0.0.1:3000/api/a2rp
+
+### get products (Redis-cached)
+GET http://127.0.0.1:3000/api/products
+
+### legacy route
+GET http://127.0.0.1:3000/api/get-products
+
+
+
