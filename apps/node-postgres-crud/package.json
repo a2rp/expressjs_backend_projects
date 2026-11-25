@@ -1,0 +1,30 @@
+{
+    "name": "node-postgres-crud",
+    "version": "1.0.0",
+    "description": "Paginated Express REST API for managing Todo records in PostgreSQL.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ./index.js",
+        "dev": "node --watch ./index.js"
+    },
+    "keywords": [
+        "nodejs",
+        "express",
+        "postgresql",
+        "postgres",
+        "node-postgres",
+        "crud-api",
+        "rest-api",
+        "todo"
+    ],
+    "author": "",
+    "license": "ISC",
+    "engines": {
+        "node": ">=22"
+    },
+    "dependencies": {
+        "dotenv": "^18.0.10",
+        "express": "^4.22.3",
+        "pg": "^8.23.1"
+    }
+}
