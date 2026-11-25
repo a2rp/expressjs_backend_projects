@@ -19,6 +19,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- basic-nodejs-expressjs-hello-app/                    example
     |-- crud-api/                    example
     |-- database-engineering-api/                    example
+    |-- ecommerce-backend/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
