@@ -9,7 +9,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- bookmark-manager-api/        runnable example
     |-- contact-form-api/            runnable example
     |-- http-only-cookie-auth/       scaffold
-    |-- newsletter-subscription-api/ scaffold
+    |-- newsletter-subscription-api/ runnable example
     |-- notes-api/                   scaffold
     |-- refresh-token-auth-api/      scaffold
     |-- task-manager-api/            scaffold
@@ -54,6 +54,19 @@ Copy apps/contact-form-api/.env.example to .env in that app folder. Configure MO
     npm run dev
 
 The API listens on http://localhost:1198 by default. See apps/contact-form-api/README.md and apps/contact-form-api/rest.http for endpoint details and sample requests.
+
+## Run the Newsletter Subscription API
+
+Requirements: Node.js 20.19 or newer and a local MongoDB instance or MongoDB Atlas database.
+
+    cd apps/newsletter-subscription-api
+    npm install
+
+Copy `.env.example` to `.env` in this app folder. Configure `MONGO_URI`, then replace `JWT_SECRET`, `ADMIN_REGISTRATION_SECRET`, and `UNSUBSCRIBE_SECRET` with separate random secrets of at least 32 characters. Set `CLIENT_ORIGINS` to your trusted frontend origin(s); production requires both `CLIENT_ORIGINS` and `UNSUBSCRIBE_SECRET`.
+
+    npm run dev
+
+The API listens on http://localhost:1198 by default. Register the initial admin with the `x-admin-registration-secret` header, then use the admin cookie to list active subscribers. Public users can subscribe and unsubscribe with a signed email token. See `apps/newsletter-subscription-api/README.md` and `apps/newsletter-subscription-api/rest.http` for full setup and endpoint details.
 
 The remaining app folders are being prepared as separate examples. Backend engineering study notes are maintained in the notes repository.
 
