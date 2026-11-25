@@ -36,6 +36,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- finance-ai-backend/                    example
     |-- gemini-chat-backend/                    example
     |-- jwt-access-token-api/                    example
+    |-- mern-auth-chakra-backend/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
