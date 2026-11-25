@@ -1,0 +1,34 @@
+{
+    "name": "basic-nodejs-expressjs-hello-app",
+    "version": "1.0.0",
+    "description": "Minimal Node.js REST API built with Express, with service, health, and sample endpoints",
+    "main": "index.js",
+    "scripts": {
+        "start": "node ./index.js",
+        "dev": "nodemon ./index.js"
+    },
+    "keywords": [
+        "nodejs",
+        "expressjs",
+        "express",
+        "express-4",
+        "api",
+        "rest-api",
+        "minimal-api",
+        "health-check",
+        "hello-world",
+        "hello-world-api"
+    ],
+    "author": "Ashish Ranjan",
+    "license": "MIT",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "dotenv": "^17.3.1",
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.1"
+    }
+}
