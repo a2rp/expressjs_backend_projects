@@ -1,0 +1,45 @@
+### GET /products
+# Result: Returns all available products.
+GET http://localhost:1198/products
+
+
+### GET /products/1
+# Result: Returns the product with ID 1.
+GET http://localhost:1198/products/1
+
+
+### GET /products/99
+# Result: Returns "Product not found." with status code 404.
+GET http://localhost:1198/products/99
+
+
+### POST /products
+# Result: Creates a new product and returns status code 201.
+POST http://localhost:1198/products
+Content-Type: application/json
+
+{
+    "name": "Laptop Stand",
+    "price": 1799
+}
+
+
+### PUT /products/1
+# Result: Updates the product with ID 1.
+PUT http://localhost:1198/products/1
+Content-Type: application/json
+
+{
+    "name": "Premium Wireless Keyboard",
+    "price": 2999
+}
+
+
+### DELETE /products/1
+# Result: Deletes the product with ID 1.
+DELETE http://localhost:1198/products/1
+
+
+### GET /products/1
+# Result: Returns "Product not found." after deletion.
+GET http://localhost:1198/products/1
