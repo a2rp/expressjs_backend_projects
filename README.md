@@ -11,7 +11,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- http-only-cookie-auth/       scaffold
     |-- newsletter-subscription-api/ runnable example
     |-- notes-api/                   runnable example
-    |-- refresh-token-auth-api/      scaffold
+    |-- refresh-token-auth-api/      runnable example
     |-- task-manager-api/            scaffold
     `-- user-profile-api/            scaffold
 
@@ -80,6 +80,19 @@ Copy `.env.example` to `.env` in the app folder. Configure `MONGO_URI`, replace 
     npm run dev
 
 The API listens on http://localhost:1198 by default. It demonstrates cookie-based JWT authentication and user-owned notes CRUD. See `apps/notes-api/README.md` and `apps/notes-api/rest.http` for endpoint details and sample requests.
+
+## Run the Refresh Token Auth API
+
+Requirements: Node.js 20.19 or newer and a local MongoDB instance or MongoDB Atlas database.
+
+    cd apps/refresh-token-auth-api
+    npm install
+
+Copy `.env.example` to `.env` in the app folder. Configure `MONGO_URI`, set `JWT_ACCESS_SECRET` and `JWT_REFRESH_SECRET` to different unique random secrets of at least 32 characters, and set `CLIENT_ORIGINS` to the trusted frontend origin(s).
+
+    npm run dev
+
+The API listens on http://localhost:1198 by default. It demonstrates short-lived access tokens, rotating refresh tokens, and refresh-token reuse detection. See `apps/refresh-token-auth-api/README.md` and `apps/refresh-token-auth-api/rest.http` for endpoint details and sample requests.
 
 The remaining scaffold folders are being prepared as separate examples. Backend engineering study notes are maintained in the notes repository.
 

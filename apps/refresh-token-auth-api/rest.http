@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:1198
+
+### API status
+GET {{baseUrl}}/
+
+### Health
+GET {{baseUrl}}/health
+
+### Register user
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Refresh User",
+  "email": "refresh-user@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+### Login user
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "refresh-user@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+### Current user (access cookie required)
+GET {{baseUrl}}/api/auth/me
+
+### Refresh tokens (refresh cookie required)
+POST {{baseUrl}}/api/auth/refresh-token
+
+### Logout
+POST {{baseUrl}}/api/auth/logout
