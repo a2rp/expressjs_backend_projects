@@ -34,6 +34,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- express-project-10-status-code-demo-api/                    example
     |-- file-storage-service/                    example
     |-- finance-ai-backend/                    example
+    |-- gemini-chat-backend/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
