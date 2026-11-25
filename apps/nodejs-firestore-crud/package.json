@@ -1,0 +1,21 @@
+{
+    "name": "nodejs-firestore-crud",
+    "version": "1.0.0",
+    "description": "Local Express API demo for Cloud Firestore user CRUD operations.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "node --watch index.js"
+    },
+    "keywords": ["firebase", "firestore", "express", "rest-api", "crud"],
+    "author": "Ashish Ranjan",
+    "license": "ISC",
+    "engines": {
+        "node": ">=22"
+    },
+    "dependencies": {
+        "dotenv": "^18.0.10",
+        "express": "^4.22.3",
+        "firebase-admin": "^14.5.0"
+    }
+}
