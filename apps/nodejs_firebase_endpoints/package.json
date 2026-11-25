@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-firebase-endpoints",
+  "version": "1.0.0",
+  "description": "Local Express API demo for Firebase Admin SDK and Firestore CRUD operations.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "author": "Ashish Ranjan",
+  "license": "ISC",
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.10",
+    "express": "^4.22.3",
+    "firebase-admin": "^14.5.0"
+  }
+}

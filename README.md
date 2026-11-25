@@ -39,6 +39,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- mern-auth-chakra-backend/                    example
     |-- mnc-nodejs-example/                    example
     |-- node-api-foundation/                    example
+    |-- nodejs_firebase_endpoints/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
