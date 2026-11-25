@@ -1,0 +1,126 @@
+### Root
+GET http://localhost:1198/
+
+
+### Health Check
+GET http://localhost:1198/api/v1/health
+
+
+### Get All Products
+GET http://localhost:1198/api/v1/products
+
+
+### Get Products With Pagination
+GET http://localhost:1198/api/v1/products?page=1&limit=2
+
+
+### Search Products
+GET http://localhost:1198/api/v1/products?search=Wireless
+
+
+### Filter By Category
+GET http://localhost:1198/api/v1/products?category=Accessories
+
+
+### Filter By Price Range
+GET http://localhost:1198/api/v1/products?minPrice=2000&maxPrice=2800
+
+
+### Filter By Stock
+GET http://localhost:1198/api/v1/products?inStock=false
+
+
+### Sort By Price Ascending
+GET http://localhost:1198/api/v1/products?sort=price&order=asc
+
+
+### Sort By Price Descending
+GET http://localhost:1198/api/v1/products?sort=price&order=desc
+
+
+### Include Soft Deleted Products
+GET http://localhost:1198/api/v1/products?includeDeleted=true
+
+
+### Combined Query
+GET http://localhost:1198/api/v1/products?search=keyboard&category=Accessories&inStock=true&sort=price&order=desc&page=1&limit=1
+
+
+### Create Product
+POST http://localhost:1198/api/v1/products
+Content-Type: application/json
+
+{
+    "name": "Wireless Keyboard create",
+    "description": "Compact wireless keyboard for everyday productivity.",
+    "category": "Accessories",
+    "price": 2499,
+    "inStock": true
+}
+
+
+### Create Another Product
+POST http://localhost:1198/api/v1/products
+Content-Type: application/json
+
+{
+    "name": "Portable SSD another",
+    "description": "High-speed portable SSD for backups and file transfers.",
+    "category": "Storage",
+    "price": 6999,
+    "inStock": true
+}
+
+
+### Get Product By ID
+### Replace PRODUCT_ID with a real MongoDB document ID
+GET http://localhost:1198/api/v1/products/6a81f6affc67e5f7c9c68290
+
+
+### Update Product
+### Replace PRODUCT_ID with a real MongoDB document ID
+PUT http://localhost:1198/api/v1/products/6a81f6affc67e5f7c9c68290
+Content-Type: application/json
+
+{
+    "name": "Premium Wireless Keyboard another",
+    "description": "Premium compact wireless keyboard for everyday productivity.",
+    "category": "Accessories",
+    "price": 2999,
+    "inStock": true
+}
+
+
+### Soft Delete Product
+### Replace PRODUCT_ID with a real MongoDB document ID
+DELETE http://localhost:1198/api/v1/products/6a81f6affc67e5f7c9c68290
+
+
+### Restore Product
+### Replace PRODUCT_ID with a previously soft-deleted MongoDB document ID
+PATCH http://localhost:1198/api/v1/products/6a81f6affc67e5f7c9c68290/restore
+
+
+### Invalid Product ID
+GET http://localhost:1198/api/v1/products/6a81f6affc67e5f7c9c68290-id
+
+
+### Invalid Product Input
+POST http://localhost:1198/api/v1/products
+Content-Type: application/json
+
+{
+    "name": "",
+    "description": "No",
+    "category": "",
+    "price": -10,
+    "inStock": "yes"
+}
+
+
+### Invalid Query
+GET http://localhost:1198/api/v1/products?page=0&limit=500
+
+
+### Invalid Route
+GET http://localhost:1198/api/v1/not-found

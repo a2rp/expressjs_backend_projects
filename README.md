@@ -18,6 +18,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- aws-app1-backend/                    example
     |-- basic-nodejs-expressjs-hello-app/                    example
     |-- crud-api/                    example
+    |-- database-engineering-api/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
