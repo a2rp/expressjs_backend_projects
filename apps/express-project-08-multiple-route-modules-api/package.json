@@ -1,0 +1,38 @@
+{
+    "name": "express-project-08-multiple-route-modules-api",
+    "private": true,
+    "version": "1.0.0",
+    "description": "A modular Express.js API with separate routers and controllers for sample users and products.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/a2rp/express-project-08-multiple-route-modules-api.git"
+    },
+    "keywords": [
+        "express",
+        "expressjs",
+        "nodejs",
+        "rest-api",
+        "express-router",
+        "modular-api",
+        "api-design",
+        "beginner-project"
+    ],
+    "author": "Ashish Ranjan",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/a2rp/express-project-08-multiple-route-modules-api/issues"
+    },
+    "homepage": "https://github.com/a2rp/express-project-08-multiple-route-modules-api#readme",
+    "dependencies": {
+        "express": "^5.2.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14"
+    }
+}
