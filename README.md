@@ -1,61 +1,36 @@
 # Backend Examples
 
-A home for practical backend APIs and service examples, collected from separate projects into one repository. Each example will stay isolated so its source, dependencies, configuration, and setup instructions remain easy to follow.
+A collection of practical backend APIs kept as isolated projects. Each app owns its source, dependencies, configuration, and run instructions.
 
 ## Repository layout
 
-Each backend project will live in its own folder under `apps/`:
+    apps/
+    |-- basic-jwt-auth-api/          runnable example
+    |-- bookmark-manager-api/        scaffold
+    |-- contact-form-api/            scaffold
+    |-- http-only-cookie-auth/       scaffold
+    |-- newsletter-subscription-api/ scaffold
+    |-- notes-api/                   scaffold
+    |-- refresh-token-auth-api/      scaffold
+    |-- task-manager-api/            scaffold
+    `-- user-profile-api/            scaffold
 
-```text
-apps/
-├── basic-jwt-auth-api/
-├── bookmark-manager-api/
-├── contact-form-api/
-├── http-only-cookie-auth/
-├── newsletter-subscription-api/
-├── notes-api/
-├── refresh-token-auth-api/
-├── task-manager-api/
-└── user-profile-api/
-```
+## Run the Basic JWT Auth API
 
-Each app keeps its own entry point and dependencies. A typical project will look like this:
+Requirements: Node.js 20.19 or newer and a local MongoDB instance or MongoDB Atlas database.
 
-```text
-example-name/
-├── src/
-├── .env.example
-├── package.json
-└── README.md
-```
+    git clone https://github.com/a2rp/backend-examples.git
+    cd backend-examples/apps/basic-jwt-auth-api
+    npm install
 
-The repository is being initialized first; the examples will be added in follow-up updates.
+Copy .env.example to .env, add a MongoDB URI, and set JWT_SECRET to a random secret of at least 32 bytes. Then start the API:
 
-## Run an example
+    npm run dev
 
-Open the selected app folder, install its dependencies, then follow that app's README and scripts. For a Node.js app, the first steps will usually be:
+The API listens on http://localhost:1198 by default. See the app README at apps/basic-jwt-auth-api/README.md for endpoint details and the included requests.rest file for sample requests.
 
-```bash
-cd apps/<example-name>
-npm install
-```
-
-Copy `.env.example` to `.env` and fill in local values when the app requires environment variables. Never commit real credentials or production secrets.
-
-## Examples planned
-
-- Basic JWT authentication API
-- Bookmark manager API
-- Contact form API
-- HttpOnly cookie authentication
-- Newsletter subscription API
-- Notes API
-- Refresh token authentication API
-- Task manager API
-- User profile API
-
-Backend engineering study notes are maintained separately from these runnable API examples.
+Other app folders are being prepared as separate examples. Backend engineering study notes are maintained in the notes repository.
 
 ## License
 
-Each example will include its license and attribution details when it is added. Check the individual project before reusing its code.
+Each app includes its own license and reuse terms.
