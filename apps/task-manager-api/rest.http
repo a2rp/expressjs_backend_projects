@@ -1,0 +1,63 @@
+@baseUrl = http://localhost:1198
+
+### Home
+GET {{baseUrl}}/
+
+### Health
+GET {{baseUrl}}/health
+
+### Register
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Ashish",
+  "email": "ashish@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+### Login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ashish@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+### Current user
+GET {{baseUrl}}/api/auth/me
+
+### Create task
+POST {{baseUrl}}/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Learn Node.js",
+  "description": "Build a task manager API",
+  "status": "pending",
+  "priority": "low",
+  "dueDate": "2027-05-15"
+}
+
+### Get my tasks
+GET {{baseUrl}}/api/tasks
+
+### Get one task
+GET {{baseUrl}}/api/tasks/PASTE_TASK_ID_HERE
+
+### Update task
+PUT {{baseUrl}}/api/tasks/PASTE_TASK_ID_HERE
+Content-Type: application/json
+
+{
+  "title": "Learn advanced backend development",
+  "status": "in-progress",
+  "priority": "medium"
+}
+
+### Delete task
+DELETE {{baseUrl}}/api/tasks/PASTE_TASK_ID_HERE
+
+### Logout
+POST {{baseUrl}}/api/auth/logout
