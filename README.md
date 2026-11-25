@@ -28,6 +28,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- express-project-04-query-filter-api/                    example
     |-- express-project-05-request-logger-middleware/                    example
     |-- express-project-06-json-body-parser-api/                    example
+    |-- express-project-07-simple-crud-api/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
