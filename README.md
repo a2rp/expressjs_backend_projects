@@ -50,6 +50,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- notification-service/                    example
     |-- password-hash-api/                    example
     |-- production-rest-api/                    example
+    |-- rest-api/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
