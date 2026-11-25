@@ -1,6 +1,6 @@
-# Backend Examples
+# Express.js Backend Projects
 
-A collection of practical backend APIs kept as isolated projects. Each app owns its source, dependencies, configuration, and run instructions.
+A collection of complete, practical backend projects built with Node.js, Express.js, databases, and related tooling. Each app keeps its source, dependencies, configuration, and run instructions in its own folder.
 
 ## Repository layout
 
@@ -57,8 +57,8 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
 
 Requirements: Node.js 20.19 or newer and a local MongoDB instance or MongoDB Atlas database.
 
-    git clone https://github.com/a2rp/backend-examples.git
-    cd backend-examples/apps/basic-jwt-auth-api
+    git clone https://github.com/a2rp/expressjs_backend_projects.git
+    cd expressjs_backend_projects/apps/basic-jwt-auth-api
     npm install
 
 Copy .env.example to .env, add a MongoDB URI, and set JWT_SECRET to a random secret of at least 32 bytes. Then start the API:
@@ -145,8 +145,8 @@ Copy `.env.example` to `.env` in this app folder. Configure `MONGO_URI`, set `JW
 
 The API listens on http://localhost:1198 by default. It demonstrates cookie-based JWT authentication and user-owned task CRUD. See `apps/task-manager-api/README.md` and `apps/task-manager-api/rest.http` for endpoint details and sample requests.
 
-The remaining scaffold folders are being prepared as separate examples. Backend engineering study notes are maintained in the notes repository.
+The remaining scaffold folders are being developed into complete projects. Backend engineering study notes are maintained in the notes repository.
 
 ## License
 
-Each app includes its own license and reuse terms.
+This repository is licensed under the MIT License. Some apps include their own LICENSE files; those project-specific terms apply within their app.
