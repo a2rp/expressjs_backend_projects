@@ -13,6 +13,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- notes-api/                   runnable example
     |-- refresh-token-auth-api/      runnable example
     |-- task-manager-api/            runnable example
+    |-- authentication-system/          runnable example
     `-- user-profile-api/            scaffold
 
 ## Run the Basic JWT Auth API

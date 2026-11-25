@@ -1,0 +1,35 @@
+{
+    "name": "authentication-system",
+    "version": "1.0.0",
+    "description": "Express and MongoDB authentication API starter with JWT sessions, HttpOnly cookies, email verification, and password reset flows.",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "nodemon src/server.js"
+    },
+    "keywords": [
+        "nodejs",
+        "express",
+        "mongodb",
+        "mongoose",
+        "authentication",
+        "jwt",
+        "bcrypt",
+        "cookies",
+        "backend"
+    ],
+    "author": "Ashish Ranjan",
+    "license": "MIT",
+    "type": "commonjs",
+    "dependencies": {
+        "bcryptjs": "^3.0.2",
+        "cookie-parser": "^1.4.7",
+        "dotenv": "^16.6.1",
+        "express": "^5.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^9.9.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}

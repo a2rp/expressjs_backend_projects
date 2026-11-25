@@ -1,0 +1,184 @@
+### Root
+GET http://localhost:1198/
+
+
+### Health Check
+GET http://localhost:1198/api/v1/health
+
+
+### Register
+POST http://localhost:1198/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name": "Ashish Ranjan",
+    "email": "ashish@example.com",
+    "password": "StrongPassword123"
+}
+
+
+### Verify Email
+### Replace the sample token with verificationToken from the Register or Resend Verification response
+POST http://localhost:1198/api/v1/auth/verify-email
+Content-Type: application/json
+
+{
+    "token": "6e68dd4fc76a8ebebc75ad3f9bfe711e7f20f60c29ba2d05953f11ca40c2e0e5"
+}
+
+
+### Resend Verification
+POST http://localhost:1198/api/v1/auth/resend-verification
+Content-Type: application/json
+
+{
+    "email": "ashish@example.com"
+}
+
+
+### Login
+### Successful login sets accessToken and refreshToken as HttpOnly cookies
+POST http://localhost:1198/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "ashish@example.com",
+    "password": "StrongPassword123"
+}
+
+
+### Get Authenticated Profile
+### Run Login first so the accessToken cookie is available
+GET http://localhost:1198/api/v1/auth/profile
+
+
+### Refresh Access Token
+### Uses the refreshToken HttpOnly cookie created during Login
+POST http://localhost:1198/api/v1/auth/refresh
+
+
+### Get Profile After Refresh
+GET http://localhost:1198/api/v1/auth/profile
+
+
+### Logout
+### Clears accessToken and refreshToken cookies
+POST http://localhost:1198/api/v1/auth/logout
+
+
+### Profile After Logout
+### Expected: 401 Authentication required
+GET http://localhost:1198/api/v1/auth/profile
+
+
+### Login Again
+POST http://localhost:1198/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "ashish@example.com",
+    "password": "StrongPassword123"
+}
+
+
+### Forgot Password
+### Copy resetToken from the response
+POST http://localhost:1198/api/v1/auth/forgot-password
+Content-Type: application/json
+
+{
+    "email": "ashish@example.com"
+}
+
+
+### Reset Password
+### Replace the token with resetToken from Forgot Password
+POST http://localhost:1198/api/v1/auth/reset-password
+Content-Type: application/json
+
+{
+    "token": "97b8ea2cca458dde55818d72ba2ea6ca93a143d1c5a1a5622656649d7b3b75e7",
+    "password": "NewStrongPassword123"
+}
+
+
+### Login With Old Password
+### Expected: 401 Invalid email or password
+POST http://localhost:1198/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "ashish@example.com",
+    "password": "StrongPassword123"
+}
+
+
+### Login With New Password
+POST http://localhost:1198/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "ashish@example.com",
+    "password": "NewStrongPassword123"
+}
+
+
+### Duplicate Registration
+### Expected: 409 Conflict
+POST http://localhost:1198/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name": "Ashish Ranjan",
+    "email": "ashish@example.com",
+    "password": "AnotherPassword123"
+}
+
+
+### Invalid Registration
+### Expected: 400 Validation failed
+POST http://localhost:1198/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name": "",
+    "email": "invalid-email",
+    "password": "123"
+}
+
+
+### Invalid Login
+### Expected: 401 Invalid email or password
+POST http://localhost:1198/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "ashish@example.com",
+    "password": "WrongPassword123"
+}
+
+
+### Invalid Verification Token
+### Expected: 400
+POST http://localhost:1198/api/v1/auth/verify-email
+Content-Type: application/json
+
+{
+    "token": "invalid-verification-token"
+}
+
+
+### Invalid Password Reset Token
+### Expected: 400
+POST http://localhost:1198/api/v1/auth/reset-password
+Content-Type: application/json
+
+{
+    "token": "invalid-reset-token",
+    "password": "NewStrongPassword123"
+}
+
+
+### Invalid Route
+### Expected: 404 Route not found
+GET http://localhost:1198/api/v1/not-found
