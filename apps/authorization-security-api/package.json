@@ -1,0 +1,40 @@
+{
+    "name": "authorization-security-api",
+    "version": "1.0.0",
+    "description": "A practical ExpressJS authorization and API security backend demonstrating role-based access control, permissions, API keys, security headers, CORS, rate limiting, JWT authentication, and protected MongoDB resources.",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "nodemon src/server.js"
+    },
+    "keywords": [
+        "nodejs",
+        "expressjs",
+        "mongodb",
+        "mongoose",
+        "authorization",
+        "rbac",
+        "permissions",
+        "api-security",
+        "jwt",
+        "helmet",
+        "cors",
+        "rate-limiting"
+    ],
+    "author": "Ashish Ranjan",
+    "license": "MIT",
+    "type": "commonjs",
+    "dependencies": {
+        "bcryptjs": "^3.0.3",
+        "cors": "^2.8.6",
+        "dotenv": "^17.4.2",
+        "express": "^5.2.1",
+        "express-rate-limit": "^8.6.2",
+        "helmet": "^8.3.0",
+        "jsonwebtoken": "^9.0.3",
+        "mongoose": "^9.9.2"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14"
+    }
+}

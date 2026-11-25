@@ -1,0 +1,242 @@
+### Root
+GET http://localhost:1198/
+
+
+### Health Check
+GET http://localhost:1198/api/v1/health
+
+
+### Register Standard User
+POST http://localhost:1198/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name": "Ashish Ranjan",
+    "email": "ashish@example.com",
+    "password": "StrongPassword123"
+}
+
+
+### Login
+### Copy accessToken from the response
+POST http://localhost:1198/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "ashish@example.com",
+    "password": "StrongPassword123"
+}
+
+
+### Get Authorization Profile
+### Replace ACCESS_TOKEN with the token returned by Login
+GET http://localhost:1198/api/v1/auth/profile
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+
+### Authenticated User Resource
+GET http://localhost:1198/api/v1/resources/user
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+
+### Moderator Resource
+### Standard user should receive 403
+GET http://localhost:1198/api/v1/resources/moderator
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+
+### Admin Resource
+### Standard user should receive 403
+GET http://localhost:1198/api/v1/resources/admin
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+
+### Read Permission Resource
+### User needs resource:read permission
+GET http://localhost:1198/api/v1/resources/read
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+
+### Manage Resource
+### User needs both resource:update and resource:delete
+GET http://localhost:1198/api/v1/resources/manage
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+
+### Flexible Resource
+### Access requires admin role OR resource:create permission
+GET http://localhost:1198/api/v1/resources/flexible
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+
+### API Key Protected Resource
+GET http://localhost:1198/api/v1/api-key/resource
+x-api-key: {{API_KEY}}
+
+
+### API Key Service Info
+GET http://localhost:1198/api/v1/api-key/service-info
+x-api-key: {{API_KEY}}
+
+
+### Invalid API Key
+GET http://localhost:1198/api/v1/api-key/resource
+x-api-key: wrong-api-key
+
+
+### Missing API Key
+GET http://localhost:1198/api/v1/api-key/resource
+
+
+### Invalid Registration
+POST http://localhost:1198/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name": "",
+    "email": "invalid-email",
+    "password": "123"
+}
+
+
+### Duplicate Registration
+POST http://localhost:1198/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name": "Ashish Ranjan",
+    "email": "ashish@example.com",
+    "password": "AnotherPassword123"
+}
+
+
+### Invalid Login
+POST http://localhost:1198/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "ashish@example.com",
+    "password": "WrongPassword123"
+}
+
+
+### Missing Bearer Token
+GET http://localhost:1198/api/v1/auth/profile
+
+
+### Invalid Bearer Token
+GET http://localhost:1198/api/v1/auth/profile
+Authorization: Bearer invalid-token
+
+
+### ---------------------------------------------------------
+### ADMIN TEST FLOW
+### ---------------------------------------------------------
+### To test admin routes:
+### 1. Register another user.
+### 2. In MongoDB Compass, change that user's role to "admin".
+### 3. Login as that admin user.
+### 4. Copy the returned accessToken into ADMIN_ACCESS_TOKEN.
+### 5. Copy the target user's MongoDB _id into USER_ID.
+
+
+### Register Admin Test Account
+POST http://localhost:1198/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name": "Admin User",
+    "email": "admin@example.com",
+    "password": "AdminPassword123"
+}
+
+
+### Login As Admin
+POST http://localhost:1198/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email": "admin@example.com",
+    "password": "AdminPassword123"
+}
+
+
+### Get All Users
+GET http://localhost:1198/api/v1/admin/users
+Authorization: Bearer {{ADMIN_ACCESS_TOKEN}}
+
+
+### Update User Role
+PATCH http://localhost:1198/api/v1/admin/users/{{USER_ID}}/role
+Authorization: Bearer {{ADMIN_ACCESS_TOKEN}}
+Content-Type: application/json
+
+{
+    "role": "moderator"
+}
+
+
+### Update User Permissions
+PATCH http://localhost:1198/api/v1/admin/users/{{USER_ID}}/permissions
+Authorization: Bearer {{ADMIN_ACCESS_TOKEN}}
+Content-Type: application/json
+
+{
+    "permissions": [
+        "resource:read",
+        "resource:create",
+        "resource:update",
+        "resource:delete"
+    ]
+}
+
+
+### Deactivate User
+PATCH http://localhost:1198/api/v1/admin/users/{{USER_ID}}/status
+Authorization: Bearer {{ADMIN_ACCESS_TOKEN}}
+Content-Type: application/json
+
+{
+    "isActive": false
+}
+
+
+### Activate User
+PATCH http://localhost:1198/api/v1/admin/users/{{USER_ID}}/status
+Authorization: Bearer {{ADMIN_ACCESS_TOKEN}}
+Content-Type: application/json
+
+{
+    "isActive": true
+}
+
+
+### Invalid Role
+PATCH http://localhost:1198/api/v1/admin/users/{{USER_ID}}/role
+Authorization: Bearer {{ADMIN_ACCESS_TOKEN}}
+Content-Type: application/json
+
+{
+    "role": "super-admin"
+}
+
+
+### Invalid Permission
+PATCH http://localhost:1198/api/v1/admin/users/{{USER_ID}}/permissions
+Authorization: Bearer {{ADMIN_ACCESS_TOKEN}}
+Content-Type: application/json
+
+{
+    "permissions": [
+        "invalid:permission"
+    ]
+}
+
+
+### Non-Admin Access To Admin Route
+GET http://localhost:1198/api/v1/admin/users
+Authorization: Bearer {{ACCESS_TOKEN}}
+
+
+### Invalid Route
+GET http://localhost:1198/api/v1/not-found
