@@ -1,0 +1,60 @@
+@baseUrl = http://localhost:1198
+
+### Home
+GET {{baseUrl}}/
+
+### Health
+GET {{baseUrl}}/health
+
+### Register
+POST {{baseUrl}}/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Ashish",
+  "email": "ashish@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+### Login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ashish@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+### Get profile
+GET {{baseUrl}}/api/profile
+
+### Update profile
+PUT {{baseUrl}}/api/profile/update
+Content-Type: application/json
+
+{
+  "name": "Ashish Ranjan",
+  "bio": "Full-Stack Web Developer",
+  "phone": "+91 9876543210"
+}
+
+### Change password
+PUT {{baseUrl}}/api/profile/change-password
+Content-Type: application/json
+
+{
+  "currentPassword": "ReplaceThisWithYourOwnPassphrase2026!",
+  "newPassword": "AnotherPrivatePassphrase2026!"
+}
+
+### Update settings
+PUT {{baseUrl}}/api/profile/settings
+Content-Type: application/json
+
+{
+  "bio": "Backend and web development",
+  "phone": "+91 9876543210"
+}
+
+### Logout
+POST {{baseUrl}}/api/auth/logout
