@@ -1,0 +1,66 @@
+@bookmarkId = 6a9f6726f9c63a7832da3f11
+
+### Home
+GET http://localhost:1206
+
+
+### Register User
+POST http://localhost:1206/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Ashish",
+  "email": "ashish@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+
+### Login User
+POST http://localhost:1206/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ashish@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+
+### Create Bookmark
+POST http://localhost:1206/api/bookmarks
+Content-Type: application/json
+
+{
+  "title": "Ashish Ranjan Portfolio",
+  "url": "https://ashishranjan.in/",
+  "tags": ["portfolio", "web"],
+  "category": "Development",
+  "isFavorite": true
+}
+
+
+### Get My Bookmarks
+GET http://localhost:1206/api/bookmarks
+
+
+### Get Single Bookmark
+GET http://localhost:1206/api/bookmarks/{{bookmarkId}}
+
+
+### Update Bookmark
+PUT http://localhost:1206/api/bookmarks/{{bookmarkId}}
+Content-Type: application/json
+
+{
+  "title": "Ashish Ranjan Website",
+  "tags": ["portfolio", "website"],
+  "category": "Tech",
+  "isFavorite": false
+}
+
+
+### Delete Bookmark
+DELETE http://localhost:1206/api/bookmarks/{{bookmarkId}}
+
+
+### Logout User
+POST http://localhost:1206/api/auth/logout
