@@ -48,6 +48,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- node-postgres-crud/                    example
     |-- node-redis-cache-example/                    example
     |-- notification-service/                    example
+    |-- password-hash-api/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
