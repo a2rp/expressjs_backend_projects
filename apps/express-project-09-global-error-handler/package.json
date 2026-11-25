@@ -1,0 +1,38 @@
+{
+    "name": "express-project-09-global-error-handler",
+    "private": true,
+    "version": "1.0.0",
+    "description": "An Express.js API demonstrating centralized JSON error handling, malformed JSON responses, and route not found responses.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/a2rp/express-project-09-global-error-handler.git"
+    },
+    "keywords": [
+        "express",
+        "expressjs",
+        "nodejs",
+        "rest-api",
+        "error-handling",
+        "error-middleware",
+        "json-api",
+        "beginner-project"
+    ],
+    "author": "Ashish Ranjan",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/a2rp/express-project-09-global-error-handler/issues"
+    },
+    "homepage": "https://github.com/a2rp/express-project-09-global-error-handler#readme",
+    "dependencies": {
+        "express": "^5.2.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14"
+    }
+}
