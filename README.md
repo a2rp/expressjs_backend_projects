@@ -6,7 +6,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
 
     apps/
     |-- basic-jwt-auth-api/          runnable example
-    |-- bookmark-manager-api/        scaffold
+    |-- bookmark-manager-api/        runnable example
     |-- contact-form-api/            scaffold
     |-- http-only-cookie-auth/       scaffold
     |-- newsletter-subscription-api/ scaffold
@@ -29,7 +29,20 @@ Copy .env.example to .env, add a MongoDB URI, and set JWT_SECRET to a random sec
 
 The API listens on http://localhost:1198 by default. See the app README at apps/basic-jwt-auth-api/README.md for endpoint details and the included requests.rest file for sample requests.
 
-Other app folders are being prepared as separate examples. Backend engineering study notes are maintained in the notes repository.
+## Run the Bookmark Manager API
+
+Requirements: Node.js 20.19 or newer and a local MongoDB instance or MongoDB Atlas database.
+
+    cd apps/bookmark-manager-api
+    npm install
+
+Copy apps/bookmark-manager-api/.env.example to .env in that app folder. Configure MONGO_URI, set JWT_SECRET to a unique random value of at least 32 characters, and set CLIENT_ORIGIN to your frontend origin.
+
+    npm run dev
+
+The API listens on http://localhost:1206 by default. See apps/bookmark-manager-api/README.md and apps/bookmark-manager-api/rest.http for endpoint details and sample requests.
+
+The remaining app folders are being prepared as separate examples. Backend engineering study notes are maintained in the notes repository.
 
 ## License
 
