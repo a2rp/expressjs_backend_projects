@@ -1,0 +1,373 @@
+@baseUrl = http://127.0.0.1:1198
+@apiKey = replace-with-your-generated-api-key
+
+### Root
+GET {{baseUrl}}/
+
+
+### Health Check
+GET {{baseUrl}}/api/v1/health
+
+
+### ---------------------------------------------------------
+### SYSTEM NOTIFICATIONS
+### ---------------------------------------------------------
+
+### Create Immediate System Notification
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "system",
+    "recipient": "user-001",
+    "subject": "Welcome",
+    "message": "Welcome to the notification service.",
+    "priority": "normal"
+}
+
+
+### Create High Priority System Notification
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "system",
+    "recipient": "user-001",
+    "subject": "Important Update",
+    "message": "A high priority system notification.",
+    "priority": "high"
+}
+
+
+### Create Scheduled System Notification
+### Change scheduledAt to a future ISO date/time before testing
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "system",
+    "recipient": "user-001",
+    "subject": "Scheduled Reminder",
+    "message": "This notification should be delivered when scheduled processing runs.",
+    "priority": "normal",
+    "scheduledAt": "2026-08-18T10:00:00.000Z"
+}
+
+
+### ---------------------------------------------------------
+### EMAIL NOTIFICATIONS
+### ---------------------------------------------------------
+
+### Create Immediate Email Notification
+### Requires valid SMTP values in .env
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "email",
+    "recipient": "recipient@example.com",
+    "subject": "Email Notification Test",
+    "message": "This is a plain-text email notification.",
+    "priority": "normal"
+}
+
+###
+POST {{baseUrl}}/api/v1/notifications/6a82fc8bff5d40b70c012775/retry
+Authorization: Bearer {{apiKey}}
+
+
+### Create HTML Email Notification
+### Requires valid SMTP values in .env
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "email",
+    "recipient": "recipient@example.com",
+    "subject": "HTML Notification Test",
+    "message": "This is the plain-text fallback message.",
+    "html": "<h1>Notification Service</h1><p>This is an HTML email notification.</p>",
+    "priority": "high"
+}
+
+
+### Create Scheduled Email Notification
+### Requires valid SMTP values when scheduled processing runs
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "email",
+    "recipient": "recipient@example.com",
+    "subject": "Scheduled Email",
+    "message": "This email is scheduled for later delivery.",
+    "priority": "normal",
+    "scheduledAt": "2026-08-18T10:30:00.000Z"
+}
+
+
+### ---------------------------------------------------------
+### BULK NOTIFICATIONS
+### ---------------------------------------------------------
+
+### Create Bulk Notifications
+POST {{baseUrl}}/api/v1/notifications/bulk
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "notifications": [
+        {
+            "type": "system",
+            "recipient": "user-001",
+            "subject": "Bulk Notification One",
+            "message": "First bulk notification.",
+            "priority": "normal"
+        },
+        {
+            "type": "system",
+            "recipient": "user-002",
+            "subject": "Bulk Notification Two",
+            "message": "Second bulk notification.",
+            "priority": "high"
+        },
+        {
+            "type": "system",
+            "recipient": "user-003",
+            "subject": "Bulk Notification Three",
+            "message": "Third bulk notification.",
+            "priority": "low"
+        }
+    ]
+}
+
+
+### ---------------------------------------------------------
+### HISTORY
+### ---------------------------------------------------------
+
+### Get All Notifications
+GET {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+
+
+### Pagination
+GET {{baseUrl}}/api/v1/notifications?page=1&limit=5
+Authorization: Bearer {{apiKey}}
+
+
+### Search Subject Or Message
+GET {{baseUrl}}/api/v1/notifications?search=welcome
+Authorization: Bearer {{apiKey}}
+
+
+### Filter By Recipient
+GET {{baseUrl}}/api/v1/notifications?recipient=user-001
+Authorization: Bearer {{apiKey}}
+
+
+### Filter By Type
+GET {{baseUrl}}/api/v1/notifications?type=system
+Authorization: Bearer {{apiKey}}
+
+
+### Filter By Status
+GET {{baseUrl}}/api/v1/notifications?status=sent
+Authorization: Bearer {{apiKey}}
+
+
+### Filter By Priority
+GET {{baseUrl}}/api/v1/notifications?priority=high
+Authorization: Bearer {{apiKey}}
+
+
+### Filter Unread Notifications
+GET {{baseUrl}}/api/v1/notifications?isRead=false
+Authorization: Bearer {{apiKey}}
+
+
+### Sort By Created Date Ascending
+GET {{baseUrl}}/api/v1/notifications?sort=createdAt&order=asc
+Authorization: Bearer {{apiKey}}
+
+
+### Sort By Created Date Descending
+GET {{baseUrl}}/api/v1/notifications?sort=createdAt&order=desc
+Authorization: Bearer {{apiKey}}
+
+
+### Combined Query
+GET {{baseUrl}}/api/v1/notifications?recipient=user-001&type=system&status=sent&priority=normal&isRead=false&sort=createdAt&order=desc&page=1&limit=10
+Authorization: Bearer {{apiKey}}
+
+
+### ---------------------------------------------------------
+### SINGLE NOTIFICATION
+### ---------------------------------------------------------
+
+### Get Notification By ID
+### Replace NOTIFICATION_ID with a real MongoDB notification ID
+GET {{baseUrl}}/api/v1/notifications/6a82fe95ff5d40b70c012778
+Authorization: Bearer {{apiKey}}
+
+
+### ---------------------------------------------------------
+### READ / UNREAD
+### ---------------------------------------------------------
+
+### Mark Notification As Read
+### Replace NOTIFICATION_ID with a real MongoDB notification ID
+PATCH {{baseUrl}}/api/v1/notifications/6a82fe95ff5d40b70c012778/read
+Authorization: Bearer {{apiKey}}
+
+
+### Mark Notification As Unread
+### Replace NOTIFICATION_ID with a real MongoDB notification ID
+PATCH {{baseUrl}}/api/v1/notifications/6a82fe95ff5d40b70c012778/unread
+Authorization: Bearer {{apiKey}}
+
+
+### Mark All Notifications For Recipient As Read
+PATCH {{baseUrl}}/api/v1/notifications/mark-all-read
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "recipient": "user-001"
+}
+
+
+### ---------------------------------------------------------
+### SCHEDULED NOTIFICATIONS
+### ---------------------------------------------------------
+
+### Process Due Scheduled Notifications
+### Only scheduled notifications whose scheduledAt is now or earlier are processed
+POST {{baseUrl}}/api/v1/notifications/process-scheduled
+Authorization: Bearer {{apiKey}}
+
+
+### ---------------------------------------------------------
+### RETRY FAILED NOTIFICATION
+### ---------------------------------------------------------
+
+### Retry Failed Notification
+### Replace NOTIFICATION_ID with an ID whose status is failed
+POST {{baseUrl}}/api/v1/notifications/6a82fe95ff5d40b70c012778/retry
+Authorization: Bearer {{apiKey}}
+
+
+### ---------------------------------------------------------
+### DELETE
+### ---------------------------------------------------------
+
+### Delete Notification
+### Replace NOTIFICATION_ID with a real MongoDB notification ID
+DELETE {{baseUrl}}/api/v1/notifications/6a82fe95ff5d40b70c012778
+Authorization: Bearer {{apiKey}}
+
+
+### ---------------------------------------------------------
+### VALIDATION / ERROR TESTS
+### ---------------------------------------------------------
+
+### Invalid Notification ID
+GET {{baseUrl}}/api/v1/notifications/invalid-id
+Authorization: Bearer {{apiKey}}
+
+
+### Missing Required Fields
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "system"
+}
+
+
+### Invalid Notification Type
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "sms",
+    "recipient": "user-001",
+    "subject": "Invalid Type",
+    "message": "SMS is not supported in this project."
+}
+
+
+### Invalid Email Recipient
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "email",
+    "recipient": "invalid-email",
+    "subject": "Invalid Email",
+    "message": "This request should fail validation."
+}
+
+
+### Invalid Priority
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "system",
+    "recipient": "user-001",
+    "subject": "Invalid Priority",
+    "message": "This request should fail validation.",
+    "priority": "urgent"
+}
+
+
+### Scheduled Date In The Past
+POST {{baseUrl}}/api/v1/notifications
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "type": "system",
+    "recipient": "user-001",
+    "subject": "Past Scheduled Notification",
+    "message": "This request should fail because scheduledAt is in the past.",
+    "scheduledAt": "2025-01-01T10:00:00.000Z"
+}
+
+
+### Empty Bulk Request
+POST {{baseUrl}}/api/v1/notifications/bulk
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{
+    "notifications": []
+}
+
+
+### Invalid Query
+GET {{baseUrl}}/api/v1/notifications?page=0&limit=500&status=invalid
+Authorization: Bearer {{apiKey}}
+
+
+### Mark All Read Without Recipient
+PATCH {{baseUrl}}/api/v1/notifications/mark-all-read
+Authorization: Bearer {{apiKey}}
+Content-Type: application/json
+
+{}
+
+
+### Invalid Route
+GET {{baseUrl}}/api/v1/not-found
