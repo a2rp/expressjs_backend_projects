@@ -1,0 +1,37 @@
+{
+    "name": "express-project-05-request-logger-middleware",
+    "private": true,
+    "version": "1.0.0",
+    "description": "A custom Express.js middleware that logs request timestamps, methods, and paths without query values.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/a2rp/express-project-05-request-logger-middleware.git"
+    },
+    "keywords": [
+        "express",
+        "expressjs",
+        "nodejs",
+        "middleware",
+        "request-logging",
+        "http-logging",
+        "beginner-project"
+    ],
+    "author": "Ashish Ranjan",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/a2rp/express-project-05-request-logger-middleware/issues"
+    },
+    "homepage": "https://github.com/a2rp/express-project-05-request-logger-middleware#readme",
+    "dependencies": {
+        "express": "^5.2.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14"
+    }
+}
