@@ -1,0 +1,39 @@
+<%- include("layout.ejs", { pageTitle: "Create account" }) %>
+<main class="page">
+    <section class="card" aria-labelledby="page-title">
+        <h1 id="page-title">Create your account</h1>
+        <p class="intro">Register to access your private dashboard.</p>
+
+        <% if (typeof error !== "undefined" && error) { %>
+            <div class="alert error" role="alert"><%= error %></div>
+        <% } %>
+
+        <form method="post" action="/register">
+            <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" minlength="2" maxlength="80" required value="<%= typeof name !== "undefined" ? name : "" %>">
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required value="<%= typeof email !== "undefined" ? email : "" %>">
+            </div>
+            <div class="field">
+                <label for="location">Location <span>(optional)</span></label>
+                <input id="location" name="location" type="text" autocomplete="address-level2" maxlength="100" value="<%= typeof location !== "undefined" ? location : "" %>">
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="72" required>
+                <small>12-72 characters with uppercase, lowercase, a number, and a symbol.</small>
+            </div>
+            <div class="field">
+                <label for="confirm">Confirm password</label>
+                <input id="confirm" name="confirm" type="password" autocomplete="new-password" minlength="12" maxlength="72" required>
+            </div>
+            <button type="submit">Create account</button>
+        </form>
+        <p class="links">Already registered? <a href="/login">Sign in</a></p>
+    </section>
+</main>
+</body>
+</html>
