@@ -6,6 +6,7 @@ Secure newsletter subscription API built with Node.js, Express, MongoDB, JWT, an
 
 - Public subscribe and signed unsubscribe endpoints
 - One-time admin registration, login, and logout
+- Database-enforced unique setup slot prevents concurrent first-admin registrations
 - Admin-only active subscriber listing
 - Hashed admin passwords with bcrypt
 - Seven-day JWT authentication in an HttpOnly cookie
@@ -85,6 +86,8 @@ const token = createHmac("sha256", process.env.UNSUBSCRIBE_SECRET)
 ```
 
 The API does not send subscription emails or perform double opt-in; it marks addresses active immediately. Public subscribe responses contain no subscriber details. Integrate a confirmation flow before sending campaigns. A mail sender must include the signed token in its unsubscribe link. Keep `UNSUBSCRIBE_SECRET` stable while mailed links need to work, since rotation invalidates old links. The unsubscribe endpoint returns the same success response whether or not the address exists, avoiding subscriber enumeration.
+
+A unique MongoDB index enforces the one-admin setup limit even when setup requests arrive concurrently. Existing databases with multiple admin accounts should be reconciled before relying on this single-admin setup flow.
 
 
 ## License

@@ -1,5 +1,6 @@
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const Admin = require("./models/admin.model");
 
 dotenv.config();
 
@@ -51,6 +52,7 @@ const startServer = async () => {
     try {
         validateEnvironment();
         await connectDB();
+        await Admin.createIndexes();
         const port = process.env.PORT === undefined ? 1198 : Number(process.env.PORT);
         app.listen(port, () => console.log(`Server running on port ${port}`));
     } catch (error) {

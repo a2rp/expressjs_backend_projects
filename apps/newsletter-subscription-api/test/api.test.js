@@ -2,6 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const request = require("supertest");
 const { app, validateEnvironment } = require("../src/index");
+const Admin = require("../src/models/admin.model");
 
 test("GET / returns API status with apiUrl first", async () => {
     const response = await request(app).get("/");
@@ -42,4 +43,14 @@ test("environment validation rejects missing variables", () => {
     assert.throws(() => validateEnvironment(), /MONGO_URI, JWT_SECRET/);
     process.env.MONGO_URI = originalMongo;
     process.env.JWT_SECRET = originalSecret;
+});
+
+test("admin schema enforces a unique initial-admin slot", () => {
+    const setupIndex = Admin.schema.indexes().find(([fields]) => fields.setupSlot === 1);
+
+    assert.ok(setupIndex, "a setup-slot database index should exist");
+    assert.equal(setupIndex[1].unique, true);
+    assert.deepEqual(setupIndex[1].partialFilterExpression, {
+        setupSlot: { $exists: true },
+    });
 });

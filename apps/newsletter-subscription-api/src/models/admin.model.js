@@ -3,6 +3,12 @@ const bcrypt = require("bcryptjs");
 
 const adminSchema = new mongoose.Schema(
     {
+        setupSlot: {
+            type: String,
+            default: "initial-admin",
+            immutable: true,
+            select: false,
+        },
         name: {
             type: String,
             required: true,
@@ -28,6 +34,16 @@ const adminSchema = new mongoose.Schema(
     },
     {
         timestamps: true,
+    },
+);
+
+// The database, rather than a check-then-create request sequence, enforces the single-admin limit.
+adminSchema.index(
+    { setupSlot: 1 },
+    {
+        unique: true,
+        partialFilterExpression: { setupSlot: { $exists: true } },
+        name: "one_initial_admin",
     },
 );
 
