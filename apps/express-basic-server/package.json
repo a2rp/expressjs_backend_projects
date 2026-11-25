@@ -1,0 +1,20 @@
+{
+    "name": "express-basic-server",
+    "version": "1.0.0",
+    "description": "A minimal Express server with JSON root and health-check endpoints.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "keywords": ["express", "nodejs", "rest-api", "health-check", "backend"],
+    "author": "Ashish Ranjan",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+        "express": "^5.2.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14"
+    }
+}
