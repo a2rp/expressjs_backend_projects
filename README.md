@@ -23,6 +23,7 @@ A collection of practical backend APIs kept as isolated projects. Each app owns 
     |-- express-backend-lab/                    example
     |-- express-basic-server/                    example
     |-- express-project-01-hello-world-api/                    example
+    |-- express-project-02-static-response-api/                    example
     `-- user-profile-api/            example
 
 ## Run the Basic JWT Auth API
