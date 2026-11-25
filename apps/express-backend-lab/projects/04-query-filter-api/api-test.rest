@@ -1,0 +1,14 @@
+### Query Params - Only age
+GET http://localhost:1198/users?age=25
+
+
+### Query Params - Age and Name
+GET http://localhost:1198/users?age=30&name=ashish
+
+
+### Query Params - Only name
+GET http://localhost:1198/users?name=rahul
+
+
+### Query Params - No filters
+GET http://localhost:1198/users

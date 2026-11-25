@@ -1,0 +1,10 @@
+### Route Params API - User 1
+GET http://localhost:1198/users/1
+
+
+### Route Params API - User 25
+GET http://localhost:1198/users/25
+
+
+### Route Params API - User 999
+GET http://localhost:1198/users/999

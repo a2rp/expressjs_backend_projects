@@ -1,0 +1,22 @@
+### GET all users
+GET http://localhost:1198/users
+
+
+### POST create user
+POST http://localhost:1198/users
+Content-Type: application/json
+
+{
+  "name": "Ashish"
+}
+
+
+### GET users again to see the newly created user
+GET http://localhost:1198/users
+
+
+### POST rejects a missing name
+POST http://localhost:1198/users
+Content-Type: application/json
+
+{}

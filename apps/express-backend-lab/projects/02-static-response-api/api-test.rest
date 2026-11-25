@@ -1,0 +1,78 @@
+# 02 - Static Response API
+
+API that returns static application information.
+
+---
+
+## Description
+
+This project demonstrates how to return structured static JSON data using Express.
+
+Unlike Hello World, this API returns a proper response structure like real world APIs.
+
+---
+
+## Run the Project
+
+From root folder:
+
+npm run dev:02
+
+Or directly:
+
+node projects/02-static-response-api/index.js
+
+---
+
+## API Endpoint
+
+GET /
+
+http://localhost:1198
+
+---
+
+## Response
+
+{
+  "success": true,
+  "project": "02 - Static Response API",
+  "message": "This API returns static application information",
+  "appInfo": {
+    "name": "Express Backend Lab",
+    "version": "1.0.0",
+    "author": "Ashish Ranjan"
+  }
+}
+
+---
+
+## API Testing
+
+Use api-test.rest file:
+
+GET http://localhost:1198
+
+---
+
+## Folder Structure
+
+02-static-response-api
+- index.js
+- api-test.rest
+- README.md
+
+---
+
+## What You Learn
+
+- How to send structured JSON response
+- How real APIs format responses
+- How to include metadata like success and project info
+
+---
+
+## Notes
+
+- Static response means no database or dynamic data
+- Useful for testing, mock APIs, and base API structure

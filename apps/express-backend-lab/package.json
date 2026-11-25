@@ -1,0 +1,31 @@
+{
+    "name": "express-backend-lab",
+    "private": true,
+    "version": "1.0.0",
+    "description": "A hands-on collection of beginner Node.js and Express API projects.",
+    "scripts": {
+        "dev:01": "nodemon projects/01-hello-world-api/index.js",
+        "dev:02": "nodemon projects/02-static-response-api/index.js",
+        "dev:03": "nodemon projects/03-route-params-api/index.js",
+        "dev:04": "nodemon projects/04-query-filter-api/index.js",
+        "dev:05": "nodemon projects/05-basic-routing-api/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/a2rp/express-backend-lab.git"
+    },
+    "keywords": ["express", "expressjs", "nodejs", "rest-api", "backend-learning"],
+    "author": "Ashish Ranjan",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/a2rp/express-backend-lab/issues"
+    },
+    "homepage": "https://github.com/a2rp/express-backend-lab#readme",
+    "dependencies": {
+        "express": "^5.2.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14"
+    }
+}
