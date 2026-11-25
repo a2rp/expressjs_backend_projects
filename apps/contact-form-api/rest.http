@@ -1,0 +1,61 @@
+### Home
+GET http://localhost:1198
+
+
+### Register Admin
+POST http://localhost:1198/api/auth/register
+Content-Type: application/json
+x-admin-registration-secret: {{$dotenv ADMIN_REGISTRATION_SECRET}}
+
+{
+  "name": "Admin User",
+  "email": "admin@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+
+### Login Admin
+POST http://localhost:1198/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "ReplaceThisWithYourOwnPassphrase2026!"
+}
+
+
+### Submit Contact Form (Public)
+POST http://localhost:1198/api/contacts
+Content-Type: application/json
+
+{
+  "name": "Ashish",
+  "email": "ashish@example.com",
+  "subject": "Website inquiry",
+  "message": "I would like to discuss a project for https://ashishranjan.in/."
+}
+
+
+### Get All Contact Submissions (Admin)
+GET http://localhost:1198/api/contacts
+
+
+### Get Single Contact Submission (Admin)
+GET http://localhost:1198/api/contacts/PASTE_CONTACT_ID_HERE
+
+
+### Update Contact Status (Admin)
+PUT http://localhost:1198/api/contacts/PASTE_CONTACT_ID_HERE/status
+Content-Type: application/json
+
+{
+  "status": "read"
+}
+
+
+### Delete Contact Submission (Admin)
+DELETE http://localhost:1198/api/contacts/PASTE_CONTACT_ID_HERE
+
+
+### Logout Admin
+POST http://localhost:1198/api/auth/logout
