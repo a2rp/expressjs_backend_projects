@@ -1,0 +1,28 @@
+### Home
+GET http://localhost:1198/
+
+### Register User
+POST http://localhost:1198/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Ashish",
+  "email": "ashish@example.com",
+  "password": "replace-with-a-strong-example-password"
+}
+
+### Login User
+POST http://localhost:1198/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ashish@example.com",
+  "password": "replace-with-a-strong-example-password"
+}
+
+### Get Logged In User
+GET http://localhost:1198/api/auth/me
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### Logout User
+POST http://localhost:1198/api/auth/logout
