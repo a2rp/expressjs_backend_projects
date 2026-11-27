@@ -1,6 +1,6 @@
 # MERN Auth Chakra Backend
 
-Express and MongoDB API for the companion [Chakra UI frontend](https://github.com/a2rp/mern-auth-chakra-frontend). It provides registration, login, HttpOnly JWT cookies, role-based admin routes, and self-service profile endpoints.
+Express and MongoDB API for the companion [Chakra UI frontend](https://github.com/a2rp/react_projects/tree/main/projects/mern-auth-chakra-frontend). It provides registration, login, HttpOnly JWT cookies, role-based admin routes, and self-service profile endpoints.
 
 ## Features
 
@@ -49,6 +49,6 @@ db.users.updateOne({ email: "admin@example.com" }, { $set: { role: "admin" } });
 
 - [Portfolio](https://www.ashishranjan.net)
 - [GitHub](https://github.com/a2rp)
-- [Companion frontend](https://github.com/a2rp/mern-auth-chakra-frontend)
+- [Companion frontend](https://github.com/a2rp/react_projects/tree/main/projects/mern-auth-chakra-frontend)
 - [LinkedIn](https://www.linkedin.com/in/aashishranjan)
 - [CodePen](https://codepen.io/ash1198)
